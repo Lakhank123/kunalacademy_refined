@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+@theme {
+  /* Royal Blue Palette */
+  --color-royal-950: #05092E;
+  --color-royal-900: #070D3E;
+  --color-royal-800: #0A1250;
+  --color-royal-700: #0D1760;
+  --color-royal-600: #1A2880;
+  --color-royal-DEFAULT: #1E3EAA;
+
+  /* Gold / Yellow Palette */
+  --color-yellow-DEFAULT: #C9980A;
+  --color-yellow-hover: #B8880A;
+  --color-yellow-soft: #FFF3B0;
+  --color-yellow-muted: rgba(201, 152, 10, 0.15);
+
+  /* Legacy aliases */
+  --color-orange: #C9980A;
+  --color-orange-hover: #B8880A;
+  --color-blue-accent: #1E3EAA;
+  --color-gold: #C9980A;
+
+  /* Font */
+  --font-sans: "Inter", sans-serif;
+
+  /* Custom Box Shadows */
+  --shadow-card: 0 2px 16px rgba(30, 62, 170, 0.08);
+  --shadow-card-hover: 0 8px 32px rgba(201, 152, 10, 0.15);
+  --shadow-btn: 0 4px 14px rgba(201, 152, 10, 0.4);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FFFFFF;
+  --foreground: #0D1760;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 30s linear infinite reverse;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0F4FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9980A;
+  border-radius: 3px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(201, 152, 10, 0.25);
+  color: #0D1760;
 }
