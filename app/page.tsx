@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import SectionLabel from "@/components/SectionLabel";
 import CounterCard from "@/components/CounterCard";
 import FeatureCard from "@/components/FeatureCard";
@@ -42,7 +43,7 @@ export default function HomePage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#C9980A]/10 border border-[#C9980A]/25 rounded-full px-4 py-2 mb-6">
               <span>🏆</span>
-              <span className="text-[#C9980A] font-semibold text-[13px]">
+              <span className="text-[#C9980A] font-semibold text-[18px]">
                 Ulhasnagar&apos;s #1 Science Coaching Since 2018
               </span>
             </div>
@@ -79,9 +80,9 @@ export default function HomePage() {
             {/* Trust Strip */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               {[
-                { icon: "👨‍🏫", text: "15+ Yrs Faculty Exp" },
-                { icon: "👥", text: "1000+ Students" },
-                { icon: "🏛️", text: "200+ Top Colleges" },
+                { icon: "👨‍🏫", text: "10+ Yrs Faculty Exp" },
+                { icon: "👥", text: "500+ Students" },
+                { icon: "🏛️", text: "100+ Top Colleges" },
               ].map((item) => (
                 <div
                   key={item.text}
@@ -98,37 +99,84 @@ export default function HomePage() {
           <div className="flex-1 w-full max-w-[520px]">
             <div className="relative">
               {/* Main visual card */}
-              <div className="bg-[#0D1760] border border-white/[0.08] rounded-3xl p-8 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
-                <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="bg-[#0D1760] border border-white/[0.08] rounded-3xl p-8 shadow-[0_40px_90px_rgba(0,0,0,0.5)]">
+                <div className="grid grid-cols-2 gap-2 mb-4">
                   {[
-                    { grade: "97.8%ile", name: "Rahul S.", exam: "JEE" },
-                    { grade: "640/720", name: "Priya P.", exam: "NEET" },
-                    { grade: "99.2%ile", name: "Arjun D.", exam: "MH-CET" },
-                    { grade: "610/720", name: "Sneha K.", exam: "NEET" },
+                    {
+                      grade: "99.82%ile",
+                      name: "ANIKET HARWANI",
+                      exam: "MHT-CET",
+                      image: "/images/Aniket.jpeg",
+                    },
+                    {
+                      grade: "99.54%ile",
+                      name: "PREM CHOITHANI",
+                      exam: "MHT-CET",
+                      image: "/images/Prem.jpeg",
+                    },
+                    {
+                      grade: "98.64%ile",
+                      name: "Mayank Hemnani",
+                      exam: "MHT-CET",
+                      image: "/images/Mayank.jpeg",
+                    },
+                    {
+                      grade: "98.64%ile",
+                      name: "HIREN NAGDEV",
+                      exam: "MHT-CET",
+                      image: "/images/Hiren.jpeg",
+                    },
                   ].map((t) => (
                     <div
                       key={t.name}
-                      className="bg-[#0A1250] rounded-xl p-3 text-center border border-white/[0.06]"
+                      className="bg-[#0A1250] rounded-xl p-4 text-center border border-white/[0.06] hover:scale-105 transition-all duration-300 shadow-lg"
                     >
-                      <div className="text-[#C9980A] font-extrabold text-[18px]">{t.grade}</div>
-                      <div className="text-white text-[12px] font-medium">{t.name}</div>
-                      <div className="text-[#C9980A] text-[10px] font-semibold">{t.exam}</div>
+                      {/* 👤 IMAGE */}
+                      <div className="flex justify-center mb-3 relative">
+                        <Image
+                          src={t.image}
+                          alt={t.name}
+                          width={90}
+                          height={90}
+                          className="w-22 h-22 rounded-full object-cover border-4 border-[#C9980A] shadow-[0_0_20px_rgba(201,152,10,0.5)]"
+                        />
+
+                        {/* 🏆 Badge */}
+                        <div className="absolute -top-2 -right-2 bg-[#C9980A] text-white text-[10px] px-2 py-1 rounded-full font-bold shadow">
+                          🏆
+                        </div>
+                      </div>
+
+                      {/* 📊 RESULT */}
+                      <div className="text-[#C9980A] font-extrabold text-[22px]">
+                        {t.grade}
+                      </div>
+
+                      {/* 👤 NAME */}
+                      <div className="text-white text-[13px] font-bold mt-1">
+                        {t.name}
+                      </div>
+
+                      {/* 📘 EXAM */}
+                      <div className="text-[#C9980A] text-[11px] font-semibold">
+                        {t.exam}
+                      </div>
                     </div>
                   ))}
                 </div>
                 <div className="bg-gradient-to-r from-[#1E3EAA] to-[#1A2880] rounded-2xl p-5 text-center">
-                  <div className="text-white font-extrabold text-[28px]">100%</div>
-                  <div className="text-white/90 font-semibold text-[13px]">JEE &amp; NEET Qualification Rate</div>
-                  <div className="text-white/70 text-[11px] mt-1">Since 2018 · 1000+ Students</div>
+                  <div className="text-white font-extrabold text-[38px]">100%</div>
+                  <div className="text-white/90 font-semibold text-[13px]">MHT CET Qualification Rate</div>
+                  <div className="text-white/70 text-[11px] mt-1">Since 2018 · 100+ Students</div>
                 </div>
               </div>
 
               {/* Floating badges */}
-              <div className="absolute -top-4 -left-4 bg-[#C9980A] text-white font-bold text-[11px] px-3 py-1.5 rounded-full shadow-lg">
+              <div className="absolute -top-4 -left-4 bg-[#C9980A] text-white font-bold text-[20px] px-3 py-1.5 rounded-full shadow-lg">
                 🏆 #1 in Ulhasnagar
               </div>
               <div className="absolute -bottom-4 -right-4 bg-[#0D1760] border border-white/[0.08] text-white font-bold text-[11px] px-3 py-1.5 rounded-full shadow-lg">
-                ✅ 200+ Top Colleges
+                ✅ 20+ Top Colleges
               </div>
             </div>
           </div>
@@ -140,7 +188,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-10">
             <SectionLabel text="Proven Results" />
-            <h2 className="text-white font-bold text-[28px] lg:text-[38px]">
+            <h2 className="text-white font-bold text-[8px] lg:text-[38px]">
               Our Results Speak Louder Than Words
             </h2>
           </div>
